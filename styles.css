@@ -1,0 +1,296 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: #BDAB96;
+    min-height: 100vh;
+    color: #5a4a3a;
+}
+
+.header {
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.nav {
+    display: flex;
+    gap: 30px;
+    margin: 0 20px;
+    flex-wrap: wrap;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 8px 15px;
+    border-radius: 25px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.nav a:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateY(-2px);
+}
+
+.nav a:first-child {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.user-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.user-actions a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.1);
+}
+
+.user-actions img {
+    height: 18px;
+    margin-right: 8px;
+    filter: brightness(0) invert(1);
+}
+
+.user-actions a:hover {
+    background: rgba(212,166,116,0.2);
+    transform: translateY(-2px);
+}
+
+.main {
+    margin-top: 60px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.title {
+    font-size: 2.5em;
+    color: #6b4423;
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #8b6f47;
+    margin-bottom: 50px;
+    font-weight: 400;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    margin-bottom: 60px;
+}
+
+.options {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.option {
+    background: linear-gradient(145deg, #ffffff 0%, #f8f6f2 100%);
+    border-radius: 20px;
+    padding: 15px;
+    width: 350px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    border: 2px solid #8B6F47;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.option::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(145deg, transparent 0%, rgba(139,111,71,0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.option:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    border-color: #6b4423;
+}
+
+.option:hover::before {
+    opacity: 1;
+}
+
+.option-image {
+    width: calc(100% - 3px); /* Уменьшили отступ в 2 раза (было 6px) */
+    height: 220px; /* Увеличили высоту для компенсации */
+    border-radius: 30px;
+    transition: transform 0.4s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: 1 px auto 15px auto; /* Уменьшили отступы в 2 раза */
+}
+
+.option:hover .option-image {
+    transform: scale(1.05);
+}
+
+.ai-image {
+    background-image: url("pictures/human_robot.png");
+}
+
+.manual-image {
+    background-image: url("pictures/chocolates.png");
+}
+
+.combo-image {
+    background-image: url("pictures/ai_robot.png");
+}
+
+.option h2 {
+    font-size: 1.4em;
+    color: #6b4423;
+    margin: 0 0 15px 0;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-align: left; /* Выравнивание по левому краю */
+    padding: 0 10px; /* Добавили отступы по бокам */
+}
+
+.option p {
+    margin: 0 0 25px 0;
+    color: #8b6f47;
+    font-size: 15px;
+    text-align: left; /* Выравнивание по левому краю */
+    line-height: 1.5;
+    font-weight: 400;
+    flex-grow: 1;
+    padding: 0 10px; /* Добавили отступы по бокам */
+}
+
+.btn {
+    background: linear-gradient(135deg, #d4a574 0%, #b8926a 100%);
+    border: none;
+    padding: 15px 30px;
+    color: #fff;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    width: calc(100% - 20px); /* Учитываем отступы */
+    margin: 0 auto; /* Центрируем кнопку */
+    margin-top: auto;
+    box-shadow: 0 5px 15px rgba(180,146,106,0.3);
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #c19660 0%, #a67d56 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(180,146,106,0.4);
+}
+
+.footer {
+    margin-top: 80px;
+    padding: 30px;
+    background: linear-gradient(135deg, #6b5537 0%, #5a462d 100%);
+    color: rgba(255,255,255,0.9);
+    min-height: auto;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav {
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .nav a {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .title {
+        font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+
+    .subtitle {
+        font-size: 1em;
+        margin-bottom: 40px;
+    }
+
+    .option {
+        width: 100%;
+        max-width: 350px;
+        padding: 12px;
+    }
+    .option-image {
+        width: calc(100% - 3px);
+        height: 211px;
+        margin: 1.5px auto 12px auto;
+    }
+
+    .option h2,
+    .option p {
+        padding: 0 8px;
+    }
+
+    .btn {
+        width: calc(100% - 16px);
+    }
+}
+
+    .main {
+        margin-top: 20px;
+        padding: 20px 10px;
+    }
+}
