@@ -22,15 +22,17 @@ body {
 
 .logo img {
     height: 45px;
-    border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.3);
+    /* Убрали ограничения овала */
+    border-radius: 0;
+    border: none;
 }
 
 .nav {
     display: flex;
-    gap: 30px;
+    gap: 15px;
     margin: 0 20px;
     flex-wrap: wrap;
+    align-items: center;
 }
 
 .nav a {
@@ -45,23 +47,150 @@ body {
     white-space: nowrap;
 }
 
-.nav a:hover {
+/* Обычные навигационные кнопки (без градиента) */
+.nav a:not(.create-chocolate-btn) {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.nav a:not(.create-chocolate-btn):hover {
     background: rgba(255,255,255,0.15);
     transform: translateY(-2px);
 }
 
-.nav a:first-child {
-    background: rgba(255,255,255,0.2);
-    border: 1px solid rgba(255,255,255,0.3);
+.create-chocolate-btn {
+    background: linear-gradient(to top, #6E4E3E 0%, #F6D8CD 100%);
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(110,78,62,0.4),
+                0 8px 25px rgba(246,216,205,0.3),
+                inset 0 2px 4px rgba(255,255,255,0.4);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.create-chocolate-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.create-chocolate-btn:hover {
+    background: linear-gradient(to top, #5A3E30 0%, #E8C8BA 100%);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(110,78,62,0.6),
+                0 12px 35px rgba(246,216,205,0.4),
+                inset 0 2px 6px rgba(255,255,255,0.5);
+}
+
+.create-chocolate-btn:hover::before {
+    left: 100%;
+}
+
+.create-chocolate-btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 3px 10px rgba(110,78,62,0.3),
+                0 5px 15px rgba(246,216,205,0.2),
+                inset 0 1px 3px rgba(255,255,255,0.3);
+}
+
+.cart-icon {
+    background: linear-gradient(to top, #6E4E3E 0%, #F6D8CD 100%);
+    border: none;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(110,78,62,0.4),
+                0 8px 25px rgba(246,216,205,0.3),
+                inset 0 2px 4px rgba(255,255,255,0.4);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.cart-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cart-icon:hover {
+    background: linear-gradient(to top, #5A3E30 0%, #E8C8BA 100%);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(110,78,62,0.6),
+                0 12px 35px rgba(246,216,205,0.4),
+                inset 0 2px 6px rgba(255,255,255,0.5);
+    text-decoration: none;
+}
+
+.cart-icon:hover::before {
+    left: 100%;
+}
+
+.cart-icon:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 3px 10px rgba(110,78,62,0.3),
+                0 5px 15px rgba(246,216,205,0.2),
+                inset 0 1px 3px rgba(255,255,255,0.3);
+}
+
+.gradient-btn {
+    background: linear-gradient(to top, #6E4E3E 0%, #F6D8CD 100%);
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 4px 15px rgba(110,78,62,0.4),
+                inset 0 2px 4px rgba(255,255,255,0.3);
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gradient-btn:hover {
+    background: linear-gradient(to top, #5A3E30 0%, #E8C8BA 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(110,78,62,0.5),
+                inset 0 2px 4px rgba(255,255,255,0.3);
 }
 
 .user-actions {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     align-items: center;
 }
 
-.user-actions a {
+/* Кнопка Войти (без градиента) */
+.profile {
     color: #fff;
     text-decoration: none;
     padding: 8px 20px;
@@ -75,15 +204,15 @@ body {
     background: rgba(255,255,255,0.1);
 }
 
+.profile:hover {
+    background: rgba(212,166,116,0.2);
+    transform: translateY(-2px);
+}
+
 .user-actions img {
     height: 18px;
     margin-right: 8px;
     filter: brightness(0) invert(1);
-}
-
-.user-actions a:hover {
-    background: rgba(212,166,116,0.2);
-    transform: translateY(-2px);
 }
 
 .main {
@@ -126,7 +255,7 @@ body {
 .option {
     background: linear-gradient(145deg, #ffffff 0%, #f8f6f2 100%);
     border-radius: 20px;
-    padding: 15px;
+    padding: 12px;
     width: 350px;
     box-shadow: 0 15px 35px rgba(0,0,0,0.1);
     transition: all 0.4s ease;
@@ -161,14 +290,14 @@ body {
 }
 
 .option-image {
-    width: calc(100% - 3px); /* Уменьшили отступ в 2 раза (было 6px) */
-    height: 220px; /* Увеличили высоту для компенсации */
-    border-radius: 30px;
+    width: calc(100% - 2px);
+    height: 220px;
+    border-radius: 15px;
     transition: transform 0.4s ease;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    margin: 1 px auto 15px auto; /* Уменьшили отступы в 2 раза */
+    margin: 1px auto 25px auto;
 }
 
 .option:hover .option-image {
@@ -190,45 +319,74 @@ body {
 .option h2 {
     font-size: 1.4em;
     color: #6b4423;
-    margin: 0 0 15px 0;
+    margin: 0 0 12px 0;
     font-weight: 700;
     letter-spacing: 1px;
-    text-align: left; /* Выравнивание по левому краю */
-    padding: 0 10px; /* Добавили отступы по бокам */
+    text-align: left;
+    padding: 0 5px;
 }
 
 .option p {
-    margin: 0 0 25px 0;
+    margin: 0 0 20px 0;
     color: #8b6f47;
     font-size: 15px;
-    text-align: left; /* Выравнивание по левому краю */
+    text-align: left;
     line-height: 1.5;
     font-weight: 400;
     flex-grow: 1;
-    padding: 0 10px; /* Добавили отступы по бокам */
+    padding: 0 5px;
 }
 
 .btn {
-    background: linear-gradient(135deg, #d4a574 0%, #b8926a 100%);
+    background: linear-gradient(to top, #6E4E3E 0%, #F6D8CD 100%);
     border: none;
-    padding: 15px 30px;
+    padding: 10px 20px;
     color: #fff;
-    border-radius: 25px;
+    border-radius: 20px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     letter-spacing: 0.5px;
     transition: all 0.3s ease;
-    width: calc(100% - 20px); /* Учитываем отступы */
-    margin: 0 auto; /* Центрируем кнопку */
+    width: calc(100% - 10px);
+    margin: 0 auto;
     margin-top: auto;
-    box-shadow: 0 5px 15px rgba(180,146,106,0.3);
+    box-shadow: 0 5px 15px rgba(110,78,62,0.4),
+                0 8px 25px rgba(246,216,205,0.3),
+                inset 0 2px 4px rgba(255,255,255,0.4);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s ease;
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, #c19660 0%, #a67d56 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(180,146,106,0.4);
+    background: linear-gradient(to top, #5A3E30 0%, #E8C8BA 100%);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(110,78,62,0.6),
+                0 12px 35px rgba(246,216,205,0.4),
+                inset 0 2px 6px rgba(255,255,255,0.5);
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 3px 10px rgba(110,78,62,0.3),
+                0 5px 15px rgba(246,216,205,0.2),
+                inset 0 1px 3px rgba(255,255,255,0.3);
 }
 
 .footer {
@@ -249,13 +407,18 @@ body {
     }
 
     .nav {
-        gap: 15px;
+        gap: 10px;
         justify-content: center;
     }
 
     .nav a {
         font-size: 12px;
         padding: 6px 12px;
+    }
+
+    .gradient-btn {
+        font-size: 12px;
+        padding: 8px 15px;
     }
 
     .title {
@@ -271,21 +434,33 @@ body {
     .option {
         width: 100%;
         max-width: 350px;
-        padding: 12px;
+        padding: 10px;
     }
     .option-image {
-        width: calc(100% - 3px);
-        height: 211px;
-        margin: 1.5px auto 12px auto;
+        width: calc(100% - 2px);
+        height: 215px;
+        margin: 1px auto 20px auto;
     }
 
     .option h2,
     .option p {
-        padding: 0 8px;
+        padding: 0 4px;
     }
 
     .btn {
-        width: calc(100% - 16px);
+        width: calc(100% - 8px);
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .create-chocolate-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    .cart-icon {
+        padding: 8px 16px;
+        font-size: 12px;
     }
 }
 
